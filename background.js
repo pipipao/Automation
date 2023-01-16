@@ -28,28 +28,24 @@ chrome.tabs.onUpdated.addListener(async (tabs) => {
             text: "",
         });
     }
-
-    chrome.tabs.sendMessage(tab.id, { text: 'report_back', url: tab.url }, addJob);
-
-
-
+    // chrome.tabs.sendMessage(tab.id, { text: 'report_back'}, addJob);
 });
+
 async function addJob(msg) {
     var job = {};
     if (msg != undefined) {
         console.log(msg.company, msg.title);
-        var tab = await getCurrentTab();
+        const tab = await getCurrentTab();
         let cur = '';
         cur = tab.url;
-        var tab = await getCurrentTab();
         job.company = msg.company;
         job.title = msg.title;
         const d = new Date();
         let time = d.getTime();
         job.time = time;
+        console.log(cur);
         console.log(job);
-        return;
-        chrome.storage.local.set({ [cur]: job }).then(() => {
+        chrome.storage.local.set({[cur]:job}).then(() => {
         });
         await chrome.action.setBadgeText({
             tabId: tab.id,

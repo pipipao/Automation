@@ -5,6 +5,7 @@ async function getAllAppliedJobs() {
             var jobCount = document.getElementById("jobcount");
             var count = 0;
             for (key in items) {
+                console.log("*******",key, items[key]);
                 count++;
                 link = items[key];
                 var li = document.createElement("li");
