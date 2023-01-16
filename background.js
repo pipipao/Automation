@@ -28,7 +28,6 @@ chrome.tabs.onUpdated.addListener(async (tabs) => {
             text: "",
         });
     }
-    // chrome.tabs.sendMessage(tab.id, { text: 'report_back'}, addJob);
 });
 
 async function addJob(msg) {
@@ -38,33 +37,38 @@ async function addJob(msg) {
         const tab = await getCurrentTab();
         let cur = '';
         cur = tab.url;
-        job.company = msg.company;
-        job.title = msg.title;
+        job.format = msg.format;
         const d = new Date();
         let time = d.getTime();
         job.time = time;
+        if (msg.format == 1) {
+            job.company = msg.company;
+            job.title = msg.title;
+        } else {
+            job.company = "";
+            job.title = "";
+        }
         console.log(cur);
         console.log(job);
-        chrome.storage.local.set({[cur]:job}).then(() => {
+        chrome.storage.local.set({ [cur]: job }).then(() => {
         });
         await chrome.action.setBadgeText({
             tabId: tab.id,
             text: "OK",
         });
     }
-
 }
+
 chrome.commands.onCommand.addListener(async (command, tab) => {
     // Add job
-    let cur = '';
-    cur = tab.url;
-    chrome.storage.local.set({ [cur]: cur }).then(() => {
-    });
-    await chrome.action.setBadgeText({
-        tabId: tab.id,
-        text: "OK",
-    });
-
+    // let cur = '';
+    // cur = tab.url;
+    // chrome.storage.local.set({ [cur]: cur }).then(() => {
+    // });
+    // await chrome.action.setBadgeText({
+    //     tabId: tab.id,
+    //     text: "OK",
+    // });
     chrome.tabs.sendMessage(tab.id, { text: 'report_back' }, addJob);
 
 });
