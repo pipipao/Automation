@@ -34,6 +34,9 @@ More than "So you don't need to copy and paste company name from that page to an
    5) Apply to this job.
    6) Click on the Automation icon to view all applied jobs.
 
+Warning:
+This program's data is storaged in your Chrome, if you remove Automation or delete Chrome your data will be deleted, please export csv file before you do something dangerous.
+
 TODOs
 - [ ] Manage applies on page(Sort by time, Set status (OA, VO, Offer) )
 - [ ] Make page more goodlooking
