@@ -1,0 +1,53 @@
+{
+    "manifest_version": 3,
+    "name": "Automation",
+    "description": "Simple Job tracker",
+    "version": "0.1",
+    "action": {
+        // "default_popup": "hello.html",
+        "default_icon": "hello.png"
+    },
+    "permissions": [
+        "alarms",
+        "notifications",
+        "storage",
+        "tabs",
+        "unlimitedStorage",
+        "activeTab",
+        "scripting"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "js": [
+                "content.js"
+            ],
+            "matches": [
+                "*://*/*"
+            ]
+        }
+    ],
+    "commands": {
+        "add_link": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+X",
+                "mac": "Command+Shift+X"
+            },
+            "description": "Mark Job as applied."
+        }
+        // "_execute_action": {
+        //     "suggested_key": {
+        //         "default": "Ctrl+U",
+        //         "mac": "Command+U"
+        //     }
+        // }
+    },
+    "icons": {
+        "16": "hello.png",
+        "32": "hello.png",
+        "48": "hello.png",
+        "128": "hello.png"
+      }
+}

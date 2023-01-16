@@ -1,0 +1,2 @@
+# Automation
+ Job Hunting Helper
