@@ -38,6 +38,10 @@ Warning:
 This program's data is storaged in your Chrome, if you remove Automation or delete Chrome your data will be deleted, please export csv file before you do something dangerous.
 
 TODOs
+urgent:
+- [ ] bug need to be fixed: linkedin same job recorded as different jobs because link is different on different pages. How to fix: record unique job id.
+
+planed
 - [ ] Manage applies on page(Sort by time, Set status (OA, VO, Offer) )
 - [ ] Make page more goodlooking
 - [ ] Auto fill when apply ( Auto apply )
